@@ -12,13 +12,13 @@ txtrst=$(tput sgr0)
 ######################
 #Export Varriables####
 ARCH="arm"
-PJ_NAME="pixi4_4_8g1g"
-OUT_FOLDER="~/out"
-CROSS_COMPILE="~/arm-eabi-4.8/bin/arm-eabi-"
-SOOURCE_PATH="~/5010"
+PJ_NAME="len6580_we_m"
+OUT_FOLDER="/home/$USER/out1"
+CROSS_COMPILE="/home/$USER/arm-eabi-4.8/bin/arm-eabi-"
+SOOURCE_PATH="/home/$USER/android_kernel3.18_alcatel_5022d/kernel-3.18"
 THREADS="3"
 IMG_NAME="tcl5022d_3_18"
-PATH_CARLIV="~/CarlivImageKitchen64"
+PATH_CARLIV="/home/$USER/CarlivImageKitchen64"
 ######################
 #Read data############
 export curdate=`date "+_%Y:%M"`
@@ -31,7 +31,7 @@ cd $SOOURCE_PATH
 VER=$(grep -o "VERSION = [0-9]" Makefile | grep -o "[0-9]")
 PATCH=$(grep -o "PATCHLEVEL = [0-9]*" Makefile | grep -o "[0-9]*")
 SUB=$(grep -o "SUBLEVEL = [0-9]*" Makefile | grep -o "[0-9]*")
-read CPU < <(grep -o "MT[0-9]*" arch/$ARCH/configs/$(PJ_NAME)_defconfig | grep -o "[0-9]*")
+read CPU < <(grep -o "MT[0-9]*" arch/$ARCH/configs/"$PJ_NAME"_defconfig | grep -o "[0-9]*")
 cd
 read SIZE_OUT < <(du -h $OUT_FOLDER | grep -o "[0-9]*[M,G,T,K]")
 read CHECK_SIZE < <(echo $SIZE_OUT | grep  -o "[0-9]*")
@@ -41,7 +41,7 @@ echo -e "${txtbld}* Size of ${bldcya}$OUT_FOLDER${txtrst} ${bldred}reached maxim
 echo -e "${txtbld}**********************************************************************************************${txtrst}"
 cd $OUT_FOLDER
 rm -rf *.img
-mv $PATH_CARLIV/output/$(IMG_NAME)_repacked.img $OUT_FOLDER/$(IMG_NAME)_test$NUMBER.img
+mv $PATH_CARLIV/output/"$IMG_NAME"_repacked.img $OUT_FOLDER/$"$IMG_NAME"_test$NUMBER.img
 fi
 #####################
 #Start building main#
@@ -53,13 +53,13 @@ cd $SOOURCE_PATH > /dev/null 2>&1
 export ARCH=$ARCH > /dev/null 2>&1
 export CROSS_COMPILE=$CROSS_COMPILE > /dev/null 2>&1
 BUILD_START=$(date +"%s")
-make $(PJ_NAME)_defconfig O=out1 > /dev/null 2>&1
+make "$PJ_NAME"_defconfig O=out1 > /dev/null 2>&1
 make -j$THREADS O=out1 &> $OUT_FOLDER/log.build
 if [ $? -eq 0 ]; then
 mv $PWD/out1/arch/$ARCH/boot/zImage-dtb $PATH_CARLIV/tcl5022d_3_18/$IMG_NAME.img-kernel
 cd $PATH_CARLIV
 ./repack_img $IMG_NAME > /dev/null 2>&1
-mv output/$(IMG_NAME)_repacked.img $OUT_FOLDER/$(IMG_NAME)_test$NUMBER.img
+mv output/$(IMG_NAME)_repacked.img $OUT_FOLDER/"$IMG_NAME"_test$NUMBER.img
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 let "NEW = $NUMBER + 1"
@@ -87,6 +87,6 @@ echo -e "${txtbld}${bldred}*****************************************************
 read ERR_COUNT < <(cat $OUT_FOLDER/error_count.txt)
 let "ERR_COUNT_NUM = $ERR_COUNT + 1"
 echo $ERR_COUNT_NUM > $OUT_FOLDER/error_count.txt
-gedit +$LINE ~/5010$FILENAME
+gedit +$LINE /home/$USER/5010$FILENAME
 fi
 ###################
