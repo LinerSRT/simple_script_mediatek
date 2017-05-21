@@ -59,7 +59,7 @@ if [ $? -eq 0 ]; then
 mv $PWD/out1/arch/$ARCH/boot/zImage-dtb $PATH_CARLIV/tcl5022d_3_18/$IMG_NAME.img-kernel
 cd $PATH_CARLIV
 ./repack_img $IMG_NAME > /dev/null 2>&1
-mv output/$(IMG_NAME)_repacked.img $OUT_FOLDER/"$IMG_NAME"_test$NUMBER.img
+mv output/"$IMG_NAME"_repacked.img $OUT_FOLDER/"$IMG_NAME"_test$NUMBER.img
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 let "NEW = $NUMBER + 1"
@@ -67,7 +67,7 @@ echo $NEW > $OUT_FOLDER/build_num.txt
 cd ..
 #Output when build is successful
 echo -e "${txtbld}**********************************************************************************************${txtrst}"
-echo -e "${txtbld}* Firmware ${bldcya}$OUT_FOLDER/$(IMG_NAME)_test$NUMBER.img${txtrst} ${txtbld} compiled and packed${txtrst}"
+echo -e "${txtbld}* Firmware ${bldcya}$OUT_FOLDER/"$IMG_NAME"_test$NUMBER.img${txtrst} ${txtbld} compiled and packed${txtrst}"
 echo -e "${txtbld}* Compilation end with ${bldgrn}$(($DIFF / 60)):$(($DIFF % 60)) (mm:ss)${txtrst}"
 echo -e "${txtbld}* Total size output folder: ${bldcya}$OUT_FOLDER${txtrst} ${txtbld}is${txtrst} ${bldgrn}$SIZE_OUT ${txtrst}"
 echo -e "${txtbld}* Last compilation maded in: ${txtrst}${bldgrn} $LAST_BUILD ${txtrst}"
