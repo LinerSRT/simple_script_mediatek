@@ -12,14 +12,14 @@ txtrst=$(tput sgr0)
 ######################
 #Export Varriables####
 ARCH="arm"
-PJ_NAME="len6580_we_m"
+PJ_NAME="pixi4_4_8g1g"
 DATA_FOLDER="/home/$USER/data"
 CROSS_COMPILE="/home/$USER/arm-eabi-4.8/bin/arm-eabi-"
-SOOURCE_PATH="/home/$USER/android_kernel3.18_alcatel_5022d/kernel-3.18"
+SOOURCE_PATH="/home/$USER/5010"
 THREADS="3"
 IMG_NAME="tcl5022d_3_18"
 PATH_CARLIV="/home/$USER/CarlivImageKitchen64"
-OUT_FOLDER_IMG="/home/$USER/out/Alcatel_5022D"
+OUT_FOLDER_IMG="/home/$USER/out"
 ######################
 #Read data############
 export curdate=`date "+_%Y:%M"`
@@ -88,6 +88,6 @@ echo -e "${txtbld}${bldred}*****************************************************
 read ERR_COUNT < <(cat $DATA_FOLDER/error_count.txt)
 let "ERR_COUNT_NUM = $ERR_COUNT + 1"
 echo $ERR_COUNT_NUM > $DATA_FOLDER/error_count.txt
-#gedit +$LINE /home/$USER/5010$FILENAME
+gedit +$LINE $SOOURCE_PATH$FILENAME
 fi
 ###################
