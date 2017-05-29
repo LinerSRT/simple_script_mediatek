@@ -16,6 +16,9 @@ Features:
  - Counting naum of builds, errors
  - Display last build date
  - Set unique name for output image
+ - Automatic logging
+ - Automatic find error line in log file
+ - Open file with error on needed line
 
 Функции:
  - Компиляция одной командой
@@ -25,6 +28,9 @@ Features:
  - Подсчет количества ошибок, удачных сборок
  - Вывод даты последней удачной сборки
  - Присвоение уникального имени для каждого образа после сборки
+ - Автоматическое логирование
+ - Поиск в логе ошибок
+ - Открытие файла вызвавшего ошибку на нужной строке
 
 ---
 Пример использования:
