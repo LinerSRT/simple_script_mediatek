@@ -43,7 +43,7 @@ Features:
 - Edit sipmle "include" file
 - Use it for free!
 ---
-- Пометите unpack_img в папку с CarlivImage 
+- Поместите unpack_img в папку с CarlivImage 
 - Отредактируйте include файл.
 - Используйте в свое удовольствие
 
