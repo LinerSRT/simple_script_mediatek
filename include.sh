@@ -11,10 +11,10 @@ bldcya=${txtbld}$(tput setaf 6)
 txtrst=$(tput sgr0)
 
 ARCH="arm"
-PJ_NAME="pixi4_4_8g1g"
+PJ_NAME="X5PRO_6735m"
 DATA_FOLDER="/home/$USER/data"
 CROSS_COMPILE="/home/$USER/arm-eabi-4.8/bin/arm-eabi-"
-SOOURCE_PATH="/home/$USER/5010"
+SOOURCE_PATH="/home/$USER/android_kernel_doogee_x5pro"
 THREADS="3"
 IMG_NAME="tcl5022d_3_18"
 PATH_CARLIV="/home/$USER/CarlivImageKitchen64"
