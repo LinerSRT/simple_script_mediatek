@@ -41,7 +41,7 @@ Features:
 
 - Put unpack_img to CarlivImage folder.
 - Edit sipmle "include" file
-- Use it for free!
+- Enjoy!
 ---
 - Поместите unpack_img в папку с CarlivImage 
 - Отредактируйте include файл.
