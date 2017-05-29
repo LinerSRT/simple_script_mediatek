@@ -1,6 +1,10 @@
 #!/bin/bash
 
 source include.sh
+if [ $UNPACK_IMG -eq "1" ]; then
+unpack_img
+dysp_unpack_img
+fi
 read_data
 dysp_start_build
 echo $BUILD_DATE > $DATA_FOLDER/last_build.txt
@@ -11,7 +15,7 @@ BUILD_START=$(date +"%s")
 make "$PJ_NAME"_defconfig O=out1 > /dev/null 2>&1
 make -j$THREADS O=out1 &> $DATA_FOLDER/log.build
 if [ $? -eq 0 ]; then
-mv $PWD/out1/arch/$ARCH/boot/zImage-dtb $PATH_CARLIV/tcl5022d_3_18/$IMG_NAME.img-kernel
+cp $PWD/out1/arch/$ARCH/boot/zImage-dtb $PATH_CARLIV/tcl5022d_3_18/$IMG_NAME.img-kernel
 cd $PATH_CARLIV
 ./repack_img $IMG_NAME > /dev/null 2>&1
 cp output/"$IMG_NAME"_repacked.img $OUT_FOLDER_IMG/"$IMG_NAME"_test$NUMBER.img
