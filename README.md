@@ -7,6 +7,26 @@
 This is simple script using to improve your compilation experience! No need more always write same command! Just once edit include file. \ Это простой скрипт, который позволит вам забыть о рутинных командах для сборки. Позволит в один миг собрать и упаковать ядро. 
 
 ---
+
+Features:
+ - Compiling for one command
+ - Repacking image
+ - Display quick usefull information
+ - Cleanuping out folder
+ - Counting naum of builds, errors
+ - Display last build date
+ - Set unique name for output image
+
+Функции:
+ - Компиляция одной командой
+ - Перепаковка образа
+ - Вывод полезной информации
+ - Автоочистка выходной папки
+ - Подсчет количества ошибок, удачных сборок
+ - Вывод даты последней удачной сборки
+ - Присвоение уникального имени для каждого образа после сборки
+
+---
 Пример использования:
 ![sample](1496056306198.png)
 ---
