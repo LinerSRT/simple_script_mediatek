@@ -19,5 +19,6 @@ THREADS="3"
 IMG_NAME="tcl5022d_3_18"
 PATH_CARLIV="/home/$USER/CarlivImageKitchen64"
 OUT_FOLDER_IMG="/home/$USER/out"
+UNPACK_IMG="1"
 
 source main_logic.sh
