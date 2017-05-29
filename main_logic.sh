@@ -76,7 +76,7 @@ read LINE < <(cat $DATA_FOLDER/log.build | grep -o "[0-9,:]*: error" | grep -o "
 
 unpack_img(){
 cd $PATH_CARLIV
-cp .scripts/unpack_img $PATH_CARLIV
-./unpack_img [a-z,_,0-9]*.img $IMG_NAME
+cp .scripts/unpack_img $PATH_CARLIV > /dev/null 2>&1
+./unpack_img [a-z,_,0-9]*.img $IMG_NAME > /dev/null 2>&1
 cd
 }
