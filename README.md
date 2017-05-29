@@ -16,7 +16,7 @@ This is simple script using to improve your compilation experience! No need more
 - Put unpack_img to CarlivImage folder.
 - Edit sipmle "include" file
 - Use it for free!
-
+---
 - Пометите unpack_img в папку с CarlivImage 
 - Отредактируйте include файл.
 - Используйте в свое удовольствие
