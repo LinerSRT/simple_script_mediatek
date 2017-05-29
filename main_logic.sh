@@ -35,6 +35,12 @@ echo -e "${txtbld}${bldred}*${txtrst}${txtbld} Error in file ${bldcya} $FILENAME
 echo -e "${txtbld}${bldred}*********************************************************************************************************************${txtrst}"
 }
 
+dysp_unpack_img(){
+echo -e "${txtbld}******************************************************************************************************************************${txtrst}"
+echo -e "${txtbld}* Your image ${bldcya}$IMG_NAME${txtrst}${txtbld} is unpacking to working directory! ${txtrst}"
+echo -e "${txtbld}******************************************************************************************************************************${txtrst}"
+}
+
 read_data(){
 read LAST_BUILD < <(cat $DATA_FOLDER/last_build.txt)
 read ERR_COUNT < <(cat $DATA_FOLDER/error_count.txt)
@@ -66,4 +72,11 @@ fi
 read_log(){
 read FILENAME < <(cat $DATA_FOLDER/log.build | grep -o "[/,a-z,_, 0-9]*.[c,h]:[0-9]*:[0-9]*: error" | grep -o "[/,a-z,_, 0-9]*.[c,h]")
 read LINE < <(cat $DATA_FOLDER/log.build | grep -o "[0-9,:]*: error" | grep -o "[0-9]*")
+}
+
+unpack_img(){
+cd $PATH_CARLIV
+cp .scripts/unpack_img $PATH_CARLIV
+./unpack_img [a-z,_,0-9]*.img $IMG_NAME
+cd
 }
